@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'Montserrat';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+a,
+li,
+button {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.center {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10%;
+  background-color: #204051;
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10%;
+  background-color: #204051;
+}
+
+.logo {
+  cursor: pointer;
+  color: white;
+}
+
+.menu-list {
+  background-color: #3b6978;
+  color: white;
+}
+
+.menu-list button {
+  color: white;
+}
+
+.nav_links {
+  list-style: none;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 6px 8px;
+  font-family: 'Montserrat' sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.nav_links li a {
+  transition: all 0.3s ease 0s;
+  color: white;
+}
+
+.nav_links li a:hover {
+  color: #cae8d5;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button {
+  padding: 9px 25px;
+  background-color: #3b6978;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease 0s;
+}
+button:hover {
+  background-color: #84a9ac;
+}
+
+button:active,
+button:focus {
+  outline: none !important;
+}
+button::-moz-focus-inner {
+  border: 0 !important;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.info h1 {
+  text-align: center;
+}
+
+.info h3 {
+  padding: 10px 0px;
+}
+
+.details {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.order {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-self: center;
+  align-items: center;
+}
+
+.order input {
+  width: 300px;
+  text-align: center;
+}
+
+.car_info {
+  width: 350px;
+  margin-left: 15px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.car_info h3 {
+  margin-bottom: 20px;
+}
+
+.car_info span {
+  float: right;
+  padding-right: 10px;
+}
+
+.car_prices {
+  width: 350px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.car_prices span {
+  font-weight: 600;
+  float: right;
+  padding-right: 10px;
+  color: #204051;
+}
+
+.car_prices span b {
+  font-weight: 600;
+  color: green;
+}
+
+.car_prices h3 {
+  margin-bottom: 20px;
+}
+
+label {
+  padding: 10px 0px;
+  padding-right: 10px;
+}
+
+input {
+  padding: 5px;
+}
+
+.textarea {
+  height: 100px;
+  width: 200px;
+  padding: 5px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+@media screen and (max-device-width: 1160px) {
+  .details {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-device-width: 650px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .nav_links li {
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .nav_links li:last-child {
+    padding-bottom: 15px;
+  }
+}

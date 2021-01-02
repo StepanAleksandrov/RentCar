@@ -1,0 +1,54 @@
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 38px;
+}
+
+.pagination ul {
+  display: inline-flex;
+  width: 400px;
+  justify-content: space-around;
+}
+
+.pagination a {
+  height: 40px;
+  min-width: 40px;
+  padding: 0 3px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.sort {
+  height: 41px;
+  background-color: #3b6978;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.sort button {
+  height: 41px;
+  border: none;
+  border-radius: 0px;
+  padding: 9px 15px;
+}
+
+@media screen and (max-device-width: 400px) {
+  a,
+  li,
+  button {
+    font-size: 14px;
+  }
+}
