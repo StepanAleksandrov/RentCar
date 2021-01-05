@@ -1,24 +1,24 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchCars } from "../store/actions/carsAction";
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchCars } from '../store/actions/carsAction';
 
 const Home = () => {
   const distpatch = useDispatch();
-  const city = "kharkov";
+  const city = 'kharkov';
 
   useEffect(() => {
     distpatch(fetchCars(city));
   }, [distpatch]);
 
   return (
-    <div className="wrapper">
-      <div className="container center">
+    <div className='wrapper'>
+      <div className='container center'>
         <div>
-          <div className="info">
+          <div className='info'>
             <div>
               <img
-                src="https://megarent.ua/style/img/servise/1400.png"
-                alt="car"
+                src='https://megarent.ua/style/img/servise/1400.png'
+                alt='car'
               />
             </div>
             <div>

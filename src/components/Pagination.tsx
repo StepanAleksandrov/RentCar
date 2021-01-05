@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export interface PaginationProps {
   carsPerPage: number;
@@ -22,16 +22,16 @@ const Pagination = ({
 
   return (
     <nav>
-      <ul className="pagination">
+      <ul className='pagination'>
         {pageNumbers.map((number) => (
-          <li key={number} className="page-item">
+          <li key={number} className='page-item'>
             <Link
               onClick={() => paginate(number)}
               to={{
                 pathname: `/cars/${city}`,
                 state: `${city}`,
               }}
-              className="page-link"
+              className='page-link'
             >
               {number}
             </Link>

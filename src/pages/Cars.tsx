@@ -35,8 +35,30 @@ const Cars = (props: any) => {
 
       return a_price - b_price;
     });
-    distpatch(filterCars([]));
     distpatch(filterCars(sorted_array));
+  };
+
+  const filteringByPrice = (arrayCars: any[], prices: any) => {
+    return arrayCars.filter((car: any) => {
+      if (prices.minPrice !== '' && prices.maxPrice !== '') {
+        if (
+          Number(Math.min(...car.price_list)) >= Number(prices.minPrice) &&
+          Number(Math.min(...car.price_list)) <= Number(prices.maxPrice)
+        ) {
+          return car;
+        }
+      } else if (prices.minPrice === '' && prices.maxPrice !== '') {
+        if (Number(prices.maxPrice) >= Number(Math.min(...car.price_list))) {
+          return car;
+        }
+      } else if (prices.minPrice !== '' && prices.maxPrice === '') {
+        if (Number(prices.minPrice) <= Number(Math.min(...car.price_list))) {
+          return car;
+        }
+      } else if (prices.minPrice === '' && prices.maxPrice === '') {
+        return car;
+      }
+    });
   };
 
   function filter(items: any) {
@@ -61,7 +83,7 @@ const Cars = (props: any) => {
       leng = leng + checked.length;
 
       if (checked.length > 0) {
-        let edited_array: any = [];
+        let edited_array: any[] = [];
         let array_elements = checked.map((val) => {
           return filterAuto.cars.filter((car: any) => {
             return car[inputs.name] === val;
@@ -71,54 +93,14 @@ const Cars = (props: any) => {
           edited_array = [...edited_array, ...array_elements[k]];
         }
 
-        filterAuto.cars = edited_array.filter((car: any) => {
-          if (prices.minPrice !== '' && prices.maxPrice !== '') {
-            if (
-              Number(car.price_list[0]) >= Number(prices.minPrice) &&
-              Number(car.price_list[3]) <= Number(prices.maxPrice)
-            ) {
-              return car;
-            }
-          } else if (prices.minPrice === '' && prices.maxPrice !== '') {
-            if (Number(prices.maxPrice) >= Number(car.price_list[3])) {
-              return car;
-            }
-          } else if (prices.minPrice !== '' && prices.maxPrice === '') {
-            if (Number(prices.minPrice) <= Number(car.price_list[0])) {
-              return car;
-            }
-          } else if (prices.minPrice === '' && prices.maxPrice === '') {
-            return car;
-          }
-        });
-      } else {
-        continue;
+        filterAuto.cars = filteringByPrice(edited_array, prices);
       }
     }
 
     if (leng > 0) {
       distpatch(filterCars(filterAuto.cars));
     } else if (leng === 0) {
-      const cars = allCars.filter((car: any) => {
-        if (prices.minPrice !== '' && prices.maxPrice !== '') {
-          if (
-            Number(Math.min(...car.price_list)) >= Number(prices.minPrice) &&
-            Number(Math.min(...car.price_list)) <= Number(prices.maxPrice)
-          ) {
-            return car;
-          }
-        } else if (prices.minPrice === '' && prices.maxPrice !== '') {
-          if (Number(prices.maxPrice) >= Number(Math.min(...car.price_list))) {
-            return car;
-          }
-        } else if (prices.minPrice !== '' && prices.maxPrice === '') {
-          if (Number(prices.minPrice) <= Number(Math.min(...car.price_list))) {
-            return car;
-          }
-        } else if (prices.minPrice === '' && prices.maxPrice === '') {
-          return car;
-        }
-      });
+      const cars = filteringByPrice(allCars, prices);
       distpatch(filterCars(cars));
     }
   }

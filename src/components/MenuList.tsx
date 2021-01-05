@@ -73,7 +73,7 @@ export default function MenuListComposition() {
           aria-haspopup='true'
           onClick={handleToggle}
         >
-          <a href='/#'>Площадки</a>
+          <p>Площадки</p>
         </Button>
         <Popper
           open={open}
